@@ -1,25 +1,113 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="5Rv-2O-Hun">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Vaults-->
+        <scene sceneID="pe4-iH-6YS">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <tableViewController id="M1n-bz-fdr" customClass="ViewController" customModule="Spirometer" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="hAW-RM-u22">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="XIr-ZX-Oj2">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XIr-ZX-Oj2" id="EW2-ZL-pqh">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="M1n-bz-fdr" id="APg-e0-Few"/>
+                            <outlet property="delegate" destination="M1n-bz-fdr" id="ALu-ji-iqO"/>
+                        </connections>
+                    </tableView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Vaults" id="7xl-7B-qKJ">
+                        <barButtonItem key="rightBarButtonItem" title="Add Vault" id="3cp-eN-EDx">
+                            <connections>
+                                <segue destination="JD2-Q7-LKm" kind="push" id="74O-0s-agH"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="aFm-dK-miL">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </refreshControl>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ya2-zL-zow" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="421" y="836"/>
+        </scene>
+        <!--Add Vault-->
+        <scene sceneID="Lz0-rz-d9U">
+            <objects>
+                <viewController id="JD2-Q7-LKm" customClass="AddViewController" customModule="Spirometer" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1LE-OD-tCy"/>
+                        <viewControllerLayoutGuide type="bottom" id="d3m-o5-rZg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uRT-Mj-EOY">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Vault Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NA9-40-Dot">
+                                <rect key="frame" x="20" y="42" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="NA9-40-Dot" firstAttribute="top" secondItem="uRT-Mj-EOY" secondAttribute="topMargin" constant="80" id="MZa-R5-c5d"/>
+                            <constraint firstItem="NA9-40-Dot" firstAttribute="top" secondItem="uRT-Mj-EOY" secondAttribute="topMargin" constant="100" id="Tt6-76-Myl"/>
+                            <constraint firstItem="NA9-40-Dot" firstAttribute="trailing" secondItem="uRT-Mj-EOY" secondAttribute="trailingMargin" constant="10" id="VPl-aX-2Zp"/>
+                            <constraint firstItem="NA9-40-Dot" firstAttribute="leading" secondItem="uRT-Mj-EOY" secondAttribute="leadingMargin" constant="10" id="avU-ud-xDv"/>
+                            <constraint firstItem="NA9-40-Dot" firstAttribute="top" secondItem="1LE-OD-tCy" secondAttribute="bottom" constant="40" id="fAr-fZ-55P"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add Vault" id="ahJ-Mq-gxH">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="qxR-Bw-HAu">
+                            <connections>
+                                <action selector="back" destination="JD2-Q7-LKm" id="LFj-80-LJT"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="kn7-rR-9Xl">
+                            <connections>
+                                <action selector="saveVault" destination="JD2-Q7-LKm" id="i28-XM-JfD"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="nameTextField" destination="NA9-40-Dot" id="JC6-t5-GLF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="S9h-r4-N7e" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1092" y="842"/>
+        </scene>
+        <!--Vaults-->
+        <scene sceneID="Caf-kU-YWI">
+            <objects>
+                <navigationController title="Vaults" id="5Rv-2O-Hun" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="chc-OM-0yX">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="M1n-bz-fdr" kind="relationship" relationship="rootViewController" id="ThZ-Zs-IhR"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WGz-nh-EDN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-399" y="836"/>
         </scene>
     </scenes>
 </document>
