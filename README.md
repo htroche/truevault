@@ -1,4 +1,4 @@
-This project shows how to connect and update Vault values with the TrueValue API.
+This project shows how to connect and update Vault values with the TrueValue API using Swift, AlamoFire and ObjectMapper
 
 To build this project you need to:
 
