@@ -12,7 +12,9 @@ import Alamofire
 import AlamofireObjectMapper
 
 let BASEURL = "https://api.truevault.com/v1"
-let TOKEN:String = "NTNhOTU3ZjgtNTgzMC00YTE0LWFkOTUtMjE1ZDk3NDUzYmZlOg=="
+//Enter your API token here
+let TOKEN:String = "<YOUR API KEY>"
+
 
 typealias VaultsServiceResponse = ([Vault]?, ErrorType?) ->Void
 
@@ -36,7 +38,7 @@ class TrueVault {
     func loadVaults(onCompletion: VaultsServiceResponse) {
         
         var urlString = NSString(format: "%@/vaults", BASEURL) as String
-        let Auth_header    = [ "Authorization" : "Basic "+TOKEN ]
+        let Auth_header    = [ "Authorization" : "Basic "+self.encodeBase64(TOKEN) ]
         manager.request(.GET, urlString, headers: Auth_header, encoding: .JSON)
             .responseObject { (response: Response<VaultWrapper, NSError>) in
                 if((response.result.error) != nil) {
@@ -54,7 +56,7 @@ class TrueVault {
         
         let request = NSMutableURLRequest(URL: NSURL(string: String(urlString))!)
         request.HTTPMethod = "POST"
-        request.setValue("Basic "+TOKEN , forHTTPHeaderField: "Authorization")
+        request.setValue("Basic "+self.encodeBase64(TOKEN) , forHTTPHeaderField: "Authorization")
         var string = "name="+vault.name!
         let data = string.dataUsingEncoding(NSUTF8StringEncoding)
         
@@ -70,6 +72,12 @@ class TrueVault {
                 }
         }
         
+    }
+    
+    func encodeBase64(token: String) -> String {
+        let compoundToken = token + ":" //the extra : is specified in the API documentation
+        let data = compoundToken.dataUsingEncoding(NSUTF8StringEncoding)
+        return data!.base64EncodedStringWithOptions(NSDataBase64EncodingOptions(rawValue: 0))
     }
     
 
