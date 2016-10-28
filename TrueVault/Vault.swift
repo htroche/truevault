@@ -14,7 +14,7 @@ class Vault:NSObject, Mappable {
     var id: String?
     var name: String?
     
-    required init?(_ map: Map){
+    required init?(map: Map){
         
     }
     

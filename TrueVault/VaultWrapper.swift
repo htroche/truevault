@@ -15,7 +15,7 @@ class VaultWrapper:NSObject, Mappable {
     var vaults: [Vault]?
     var status: String?
     
-    required init?(_ map: Map){
+    required init?(map: Map){
         
     }
     

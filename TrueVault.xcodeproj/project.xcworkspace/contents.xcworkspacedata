@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Spirometer.xcodeproj">
+      location = "self:/Users/hugotroche/Documents/truevault/TrueVault.xcodeproj">
    </FileRef>
 </Workspace>

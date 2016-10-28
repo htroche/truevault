@@ -25,7 +25,7 @@ class AddViewController: UIViewController {
     }
     
     @IBAction func back() {
-        self.navigationController?.popViewControllerAnimated(true)
+        self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func saveVault() {
